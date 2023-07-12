@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ComposeMovies</string>
+    <string name="for_you">For you</string>
+    <string name="popular">Popular</string>
+    <string name="genres">Genres</string>
+    <string name="legendary_movies">Legendary Movies</string>
+</resources>
