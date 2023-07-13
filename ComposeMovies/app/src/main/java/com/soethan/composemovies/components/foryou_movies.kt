@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -26,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -34,8 +36,9 @@ import com.soethan.composemovies.model.MovieModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun forYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>) {
-
+fun ForYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>) {
+    val configuration = LocalConfiguration.current
+    val heightInDp = configuration.screenHeightDp.dp
     Column(modifier = Modifier.fillMaxWidth()) {
         val pagerState = rememberPagerState()
         HorizontalPager(
@@ -43,7 +46,7 @@ fun forYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>) {
             state = pagerState,
             modifier = modifier
                 .fillMaxWidth()
-                .height(420.dp)
+                .height(heightInDp * 0.5f)
         ) {
             ForYouMovieItem(movieModel = movieList[it])
         }
@@ -70,10 +73,7 @@ fun forYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>) {
             }
         }
 
-
     }
-
-
 }
 
 

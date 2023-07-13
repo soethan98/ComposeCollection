@@ -3,5 +3,7 @@
     <string name="for_you">For you</string>
     <string name="popular">Popular</string>
     <string name="genres">Genres</string>
+    <string name="cast">Cast</string>
+    <string name="default_text_gen">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta posuere nisl vitae venenatis. Nam arcu nulla, consectetur at pellentesque at, egestas eget nulla. Pellentesque ullamcorper quam pulvinar, rhoncus libero a, blandit velit. Cras id quam in nunc imperdiet gravida vitae tristique elit. Etiam tincidunt, magna id interdum gravida, metus erat consequat sapien, at egestas ante mi ultrices libero. Mauris malesuada venenatis mauris eu pretium. Suspendisse nulla odio, tempor nec varius at, commodo at nunc. Mauris molestie leo a ipsum ultrices, et convallis libero dapibus. Pellentesque ultricies orci vitae ornare pulvinar. Cras non urna leo. Mauris vitae mattis justo. Suspendisse potenti. Aenean in condimentum turpis. Phasellus efficitur eros a erat mattis scelerisque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eros sapien, pretium vitae dolor et, dignissim accumsan eros. </string>
     <string name="legendary_movies">Legendary Movies</string>
 </resources>

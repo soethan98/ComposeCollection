@@ -26,35 +26,34 @@ val popularImages = listOf<MovieModel>(
         movieName = "Dune",
         year = "2021",
         movieRating = "8.3",
-        cast = buildList {
-            buildMap<String, String> {
-                "name" to "Timothee Chalamet"
-                "role" to "Paul Atreides"
+        cast = listOf(
+            mapOf(
+                "name" to "Timothee Chalamet",
+                "role" to "Paul Atreides",
                 "image" to "actor_1.jpeg"
-            }
-            buildMap<String, String> {
-                "name" to "Zendaya"
-                "role" to "Chani"
+            ),
+            mapOf(
+                "name" to "Zendaya",
+                "role" to "Chani",
                 "image" to "actor_2.jpeg"
-            }
-            buildMap<String, String> {
-                "name" to "Rebecca Ferguson"
-                "role" to "Lady Jessica"
+            ),
+            mapOf(
+                "name" to "Rebecca Ferguson",
+                "role" to "Lady Jessica",
                 "image" to "actor_3.jpeg"
-            }
-            buildMap<String, String> {
-                "name" to "Oscar Isaac"
-                "role" to "Duke Leto"
+            ),
+            mapOf(
+                "name" to "Oscar Isaac",
+                "role" to "Duke Leto",
                 "image" to "actor_4.jpeg"
-            }
-            buildMap<String, String> {
-                "name" to "Jaon Momoa"
-                "role" to "Duncan Idaho"
+            ),
+            mapOf(
+                "name" to "Jaon Momoa",
+                "role" to "Duncan Idaho",
                 "image" to "actor_5.jpeg"
-            }
+            )
+        ),
 
-
-        },
         comments = listOf(
             mapOf(
                 "name" to "Cody Fisher",
@@ -137,7 +136,7 @@ val legendaryImages = listOf<MovieModel>(
         movieRating = "7.5"
     ),
     MovieModel(
-        image  = R.drawable.for_your_image_1,
+        image = R.drawable.for_your_image_1,
         movieName = "Cruella",
         year = "2021",
         movieRating = "9.2"
@@ -152,3 +151,15 @@ val genresList = listOf<MovieModel>(
     MovieModel(movieName = "Detective", image = R.drawable.genres_4),
     MovieModel(movieName = "Action", image = R.drawable.genres_5),
 );
+
+
+fun String.getDrawableResource(): Int {
+    return when {
+        this.contains("actor_1") -> R.drawable.actor_1
+        this.contains("actor_2") -> R.drawable.actor_2
+        this.contains("actor_3") -> R.drawable.actor_3
+        this.contains("actor_4") -> R.drawable.actor_4
+        this.contains("actor_5") -> R.drawable.actor_5
+        else -> R.drawable.actor_1
+    }
+}

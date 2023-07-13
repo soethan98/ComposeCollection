@@ -92,7 +92,10 @@ fun MovieItemCard(modifier: Modifier = Modifier, movieModel: MovieModel) {
                     fontWeight = FontWeight.Bold
                 )
             )
-            Row(horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Text(
                     text = movieModel.movieRating!!,
                     textAlign = TextAlign.End, maxLines = 1, overflow = TextOverflow.Clip,
@@ -112,87 +115,6 @@ fun MovieItemCard(modifier: Modifier = Modifier, movieModel: MovieModel) {
 
 
     }
-
-//    Card(
-//        modifier = modifier
-//            .height(250.dp)
-//            .background(Color.Blue),
-//        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-//    ) {
-//        Column() {
-//            val gradientColors = listOf(
-//                Color.Transparent,
-//                Color.Black.copy(alpha = 0.7f)
-//            ) // Define your gradient colors here
-//            Box(
-//                modifier = modifier
-//                    .width(140.dp)
-//                    .height(200.dp),
-//            ) {
-//
-//                Image(
-//                    painter = painterResource(id = movieModel.image!!),
-//                    contentDescription = null,
-//                    contentScale = ContentScale.Crop,
-//                    modifier = Modifier.fillMaxSize()
-//                )
-////                Box(
-////                    modifier = Modifier
-////                        .fillMaxSize()
-////                        .background(
-////                            brush = Brush.verticalGradient(
-////                                colors = gradientColors,
-////                                startY = 0f,
-////                                endY = 500f // Adjust the value as per your requirement
-////                            )
-////                        )
-////                )
-//
-//
-//            }
-//
-//            Row(
-//                horizontalArrangement = Arrangement.SpaceBetween,
-//                verticalAlignment = Alignment.CenterVertically,
-//                modifier = Modifier.fillMaxWidth()
-//            ) {
-//                Text(
-//                    text = movieModel.movieName!!,
-//                    style = TextStyle(
-//                        color = Color.White,
-//                        fontSize = 16.sp,
-//                        fontWeight = FontWeight.Bold
-//                    )
-//                )
-//                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-//                    Text(
-//                        text = movieModel.movieRating!!, maxLines = 1, overflow = TextOverflow.Clip,
-//                        style = TextStyle(
-//                            color = Color.White,
-//                            fontSize = 13.sp,
-//                            fontWeight = FontWeight.Bold
-//                        )
-//                    )
-//                    Icon(
-//                        imageVector = Icons.Filled.Star, contentDescription = "rating",
-//                        tint = Color.Yellow,
-//                        modifier = Modifier.size(15.dp)
-//                    )
-//                }
-//            }
-//
-//            Spacer(modifier = Modifier.height(4.dp))
-//            Text(
-//                text = movieModel.year!!,
-//                style = TextStyle(
-//                    color = Color.White.copy(alpha = 0.54f),
-//                    fontSize = 14.sp,
-//                    fontWeight = FontWeight.W300
-//                )
-//            )
-//
-//        }
-//    }
 
 
 }

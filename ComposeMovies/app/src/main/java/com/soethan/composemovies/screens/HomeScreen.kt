@@ -23,11 +23,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.soethan.composemovies.R
 import com.soethan.composemovies.components.BottomBar
+import com.soethan.composemovies.components.ForYouMovies
 import com.soethan.composemovies.components.GenreItem
 import com.soethan.composemovies.components.HomeAppBar
 import com.soethan.composemovies.components.MovieItemCard
 import com.soethan.composemovies.components.SearchBar
-import com.soethan.composemovies.components.forYouMovies
 import com.soethan.composemovies.model.forYouImages
 import com.soethan.composemovies.model.genresList
 import com.soethan.composemovies.model.legendaryImages
@@ -63,7 +63,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     )
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    forYouMovies(movieList = forYouImages)
+                    ForYouMovies(movieList = forYouImages)
                     Spacer(modifier = Modifier.height(16.dp))
 
                 }
