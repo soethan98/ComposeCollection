@@ -36,7 +36,7 @@ import com.soethan.composemovies.ui.theme.kBackgroundColor
 
 @ExperimentalMaterial3Api
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, onNavigateToDetail: () -> Unit) {
     Scaffold(modifier = modifier, content = { paddingValues ->
         Box(
             modifier = Modifier
@@ -63,7 +63,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     )
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    ForYouMovies(movieList = forYouImages)
+                    ForYouMovies(movieList = forYouImages, onClick = onNavigateToDetail)
                     Spacer(modifier = Modifier.height(16.dp))
 
                 }
@@ -78,7 +78,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     Spacer(modifier = Modifier.height(16.dp))
                     LazyRow() {
                         items(popularImages.size) {
-                            MovieItemCard(movieModel = popularImages[it])
+                            MovieItemCard(
+                                movieModel = popularImages[it],
+                                onClick = onNavigateToDetail
+                            )
                         }
                     }
                     Spacer(modifier = Modifier.height(24.dp))
@@ -112,9 +115,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         )
                     )
                     Spacer(modifier = Modifier.height(16.dp))
-                    LazyRow() {
+                    LazyRow {
                         items(legendaryImages.size) {
-                            MovieItemCard(movieModel = legendaryImages[it])
+                            MovieItemCard(
+                                movieModel = legendaryImages[it],
+                                onClick = onNavigateToDetail
+                            )
                         }
                     }
 

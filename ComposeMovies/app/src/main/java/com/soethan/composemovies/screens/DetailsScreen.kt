@@ -13,8 +13,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -23,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -38,12 +41,16 @@ import androidx.compose.ui.unit.sp
 import com.soethan.composemovies.R
 import com.soethan.composemovies.components.CastCard
 import com.soethan.composemovies.components.CastCrew
+import com.soethan.composemovies.components.CommentsCard
 import com.soethan.composemovies.components.DetailsBackDrop
 import com.soethan.composemovies.components.ExpandableText
 import com.soethan.composemovies.components.GenreTag
+import com.soethan.composemovies.components.TrailerCard
 import com.soethan.composemovies.model.MovieModel
 import com.soethan.composemovies.model.popularImages
 import com.soethan.composemovies.ui.theme.kBackgroundColor
+import com.soethan.composemovies.ui.theme.kButtonColor
+import com.soethan.composemovies.ui.theme.kSearchbarColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -105,18 +112,53 @@ fun DetailsScreen(modifier: Modifier = Modifier, popularMovies: List<MovieModel>
                             GenreTag(label = "Drama")
                         }
 
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(24.dp))
 
                         ExpandableText(
                             text = stringResource(id = R.string.default_text_gen),
                             minimizedMaxLines = 3,
                             textColor = Color.White.copy(alpha = 0.7f)
                         )
-                        Spacer(modifier = Modifier.height(16.dp))
+
+                        Spacer(modifier = Modifier.height(24.dp))
 
                         CastCrew(casts = popularMovies[0].cast!!)
+
+                        Spacer(modifier = Modifier.height(24.dp))
+                        TrailerCard()
+
+                        Spacer(modifier = Modifier.height(24.dp))
+                        CommentsCard()
+
                     }
+
                 }
+
+
+                item {
+                    Spacer(modifier = Modifier.height(heightInDp * 0.15f))
+                }
+
+            }
+
+
+
+
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(horizontal = 24.dp, vertical = 16.dp)
+                    .fillMaxWidth()
+                    .height(70.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(kButtonColor)
+            ) {
+                Text(
+                    text = "Watch Movie", color = Color.White,
+                    fontSize = 20.sp, fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+
             }
 
         }

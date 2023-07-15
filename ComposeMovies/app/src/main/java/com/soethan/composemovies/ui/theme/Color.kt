@@ -12,5 +12,6 @@ val Pink40 = Color(0xFF7D5260)
 
 
 val  kBackgroundColor = Color(0xff121012);
-val  kButtonColor = Color(0xffFF5936);
+val  kButtonColor = Color(0xff7C44C2);
 val  kSearchbarColor = Color(0xff382C3E);
+

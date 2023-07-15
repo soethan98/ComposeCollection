@@ -2,6 +2,7 @@ package com.soethan.composemovies.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -41,7 +42,7 @@ import com.soethan.composemovies.model.MovieModel
 import com.soethan.composemovies.model.popularImages
 
 @Composable
-fun MovieItemCard(modifier: Modifier = Modifier, movieModel: MovieModel) {
+fun MovieItemCard(modifier: Modifier = Modifier, movieModel: MovieModel, onClick: () -> Unit) {
     val gradientColors = listOf(
         Color.Transparent,
         Color.Black.copy(alpha = 0.7f)
@@ -51,6 +52,7 @@ fun MovieItemCard(modifier: Modifier = Modifier, movieModel: MovieModel) {
             .padding(start = 8.dp, end = 8.dp)
             .width(140.dp)
             .clip(RoundedCornerShape(12.dp))
+            .clickable(onClick = onClick)
     ) {
         Box(
             modifier = modifier
@@ -123,5 +125,5 @@ fun MovieItemCard(modifier: Modifier = Modifier, movieModel: MovieModel) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewItemCard() {
-    MovieItemCard(movieModel = popularImages[0])
+    MovieItemCard(movieModel = popularImages[0], onClick = {})
 }

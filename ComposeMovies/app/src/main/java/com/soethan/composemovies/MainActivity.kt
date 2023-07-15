@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.soethan.composemovies.navigation.MovieNavHost
 import com.soethan.composemovies.screens.DetailsScreen
 import com.soethan.composemovies.screens.HomeScreen
 import com.soethan.composemovies.ui.theme.ComposeMoviesTheme
@@ -22,29 +23,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeMoviesTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                   DetailsScreen()
-                }
+                MovieNavHost()
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeMoviesTheme {
-        Greeting("Android")
-    }
-}

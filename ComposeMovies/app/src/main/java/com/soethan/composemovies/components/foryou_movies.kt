@@ -3,6 +3,7 @@ package com.soethan.composemovies.components
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -36,19 +37,20 @@ import com.soethan.composemovies.model.MovieModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ForYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>) {
+fun ForYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>, onClick: () -> Unit) {
     val configuration = LocalConfiguration.current
     val heightInDp = configuration.screenHeightDp.dp
     Column(modifier = Modifier.fillMaxWidth()) {
-        val pagerState = rememberPagerState()
+        val pagerState = rememberPagerState(pageCount = {
+            movieList.size
+        })
         HorizontalPager(
-            pageCount = movieList.size,
             state = pagerState,
             modifier = modifier
                 .fillMaxWidth()
                 .height(heightInDp * 0.5f)
         ) {
-            ForYouMovieItem(movieModel = movieList[it])
+            ForYouMovieItem(movieModel = movieList[it], onClick = onClick)
         }
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -78,15 +80,20 @@ fun ForYouMovies(modifier: Modifier = Modifier, movieList: List<MovieModel>) {
 
 
 @Composable
-private fun ForYouMovieItem(movieModel: MovieModel, modifier: Modifier = Modifier) {
+private fun ForYouMovieItem(
+    movieModel: MovieModel,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
     val image = movieModel.image
 
     Image(
         painter = painterResource(id = image!!),
         contentDescription = null,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .clip(RoundedCornerShape(20.dp)),
+            .clip(RoundedCornerShape(20.dp))
+            .clickable(onClick = onClick),
         contentScale = ContentScale.Crop
     )
 }
